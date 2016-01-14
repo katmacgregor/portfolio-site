@@ -5,33 +5,38 @@
 @import "global/style_elements.scss";
 // @import "404.scss";
 
-@mixin page-background($base-color, $chevron-color: null){
-  @if $chevron-color{
-    background: linear-gradient(135deg, $chevron-color 25%, transparent 25%) -50px 0, linear-gradient(225deg, $chevron-color 25%, transparent 25%) -50px 0, linear-gradient(315deg, $chevron-color 25%, transparent 25%), linear-gradient(45deg, $chevron-color 25%, transparent 25%);
+@mixin page-background($base-color, $accent-color: null){
+  @if$accent-color{
+    // background: linear-gradient(135deg,$accent-color 25%, transparent 25%) -50px 0, linear-gradient(225deg,$accent-color 25%, transparent 25%) -50px 0, linear-gradient(315deg,$accent-color 25%, transparent 25%), linear-gradient(45deg,$accent-color 25%, transparent 25%);
+      background-size: 350%;
+      background-image: radial-gradient($accent-color, $base-color);
+      animation: gradient-fade 10s infinite alternate;
   }
-  background-size: 100px 100px;
+  // background-size: 100px 100px;
   background-color: $base-color;
 }
 
-@mixin container-alternating-color($color){
-  background-color: darken($color, 5%);
-  &:nth-of-type(even){ background-color: darken($color, 3.5%); }
+@mixin container-alternating-color($color, $base: 6%, $accent: 3.5%){
+  background-color: darken($color, $base);
+  &:nth-of-type(even){ background-color: darken($color, $accent); }
 }
+
+html, body{ width: 100%; height: 100%; }
 
 body{
   margin: 0;
   color: $day-text;
   font-family: $bodytext;
   font-size: 16px;
-  @include page-background($day-base, $day-accent);
+  .bg-fill{ @include page-background($day-base, $day-accent); }
 
   &:not(.night) .fa.list{ color: #666; }
   &.night{
     color: $night-text;
-    @include page-background($night-base, $night-accent);
+    .bg-fill{ @include page-background($night-base, $night-accent); }
 
     h1 .accent{ color: $night-text; }
-    .content-container{ @include container-alternating-color($night-base); }
+    .content-container{ @include container-alternating-color(rgba(255, 255, 255, 0.1), $base: 0%, $accent: 30%); }
   }
 }
 
@@ -49,7 +54,7 @@ h1, h2:not(.project){
 }
 
 h1{
-  &.hp{
+  &.hide{
     opacity: 0;
     height: 0;
     margin: 0;
@@ -88,6 +93,14 @@ p{
 
 img{ width: 100%; }
 
+.bg-fill{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .main-container{
   position: relative;
   width: 100%;
@@ -104,7 +117,10 @@ img{ width: 100%; }
     max-width: 28em;
     transform: translate(-50%, -50%);
   }
-  &.port{ padding: 0 12px; }
+  &.port{
+    padding: 0 12px;
+    .title{ padding-bottom: 24px; }
+  }
   &.loaded{
     opacity: 1;
   }
@@ -156,19 +172,25 @@ img{ width: 100%; }
   color: $day-accent;
   width: 100%;
   height: 100%;
+  .title &{
+    font-size: 1.7em;
+    &:before{
+      position: absolute;
+      top: 16%;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    &.fa-file-text{
+      top: 8%;
+      font-size: 1.45em;
+    }
+  }
   &.list{
     display: inline-block;
     position: relative;
     width: auto;
     margin: 6px 0 0 8px;
   }
-}
-.fa-comments, .fa-linkedin{ font-size: 1.7em;}
-.fa-comments{ padding: 5px 1px; }
-.fa-linkedin{ padding: 6px 1px; }
-.fa-file-text{
-  padding: 7px 1px;
-  font-size: 1.55em;
 }
 .fa-inline{
   display: inline;
@@ -209,7 +231,7 @@ img{ width: 100%; }
   line-height: 1.1em;
   box-sizing: border-box;
   transition: max-height 400ms;
-  @include container-alternating-color($day-base);
+  @include container-alternating-color(rgba(255, 255, 255, 0.3), $base: 0%, $accent: 8%);
   &:nth-of-type(2){ border-radius: $border-radius $border-radius 0 0; }
   &:last-of-type{ border-radius: 0 0 $border-radius $border-radius; }
 
@@ -270,6 +292,13 @@ img{ width: 100%; }
   &.visible{ visibility: visible; opacity: 1; }
 }
 .top-text{ display: inline; }
+
+@keyframes gradient-fade{
+  0%{ background-position: 0% 51%; }
+  33%{ background-position: 100% 0%; }
+  66%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 100%; }
+}
 
 @media screen and (max-width: 569px){
   .col{

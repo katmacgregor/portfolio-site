@@ -2,10 +2,14 @@ $headertext: 'Playfair Display', 'Georgia', serif;
 $bodytext: 'Muli', sans-serif;
 $accent: #25A8DF;
 
-$day-base: #f4f7f7;
-$day-accent: #f8fcfd;
+// $day-base: #f4f7f7;
+// $day-accent: #f8fcfd;
+$day-base: #AAE8FF;
+$day-accent: #F7EFD9;
 $day-text: #666;
 
-$night-base: #666;
-$night-accent: #696969;
+// $night-base: #222;
+// $night-accent: #696969;
+$night-base: #060421;
+$night-accent: #0448AF;
 $night-text: $day-base;
