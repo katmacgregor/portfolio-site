@@ -8,9 +8,9 @@
 @mixin page-background($base-color, $accent-color: null){
   @if$accent-color{
     // background: linear-gradient(135deg,$accent-color 25%, transparent 25%) -50px 0, linear-gradient(225deg,$accent-color 25%, transparent 25%) -50px 0, linear-gradient(315deg,$accent-color 25%, transparent 25%), linear-gradient(45deg,$accent-color 25%, transparent 25%);
-      background-size: 350%;
-      background-image: radial-gradient($accent-color, $base-color);
-      animation: gradient-fade 10s infinite alternate;
+    background-size: 350%;
+    background-image: radial-gradient($accent-color, $base-color);
+    animation: gradient-fade 10s infinite alternate;
   }
   // background-size: 100px 100px;
   background-color: $base-color;
@@ -44,6 +44,9 @@ body{
     .content-container{ @include container-alternating-color(rgba(255, 255, 255, 0.1), $base: 0%, $accent: 30%); }
     &.evening{
       .bg-fill{ @include page-background($evening-base, $evening-accent); }
+    }
+    &.midnight{
+     .bg-fill{ @include page-background($midnight-base, $midnight-accent); }
     }
   }
 }
@@ -253,7 +256,7 @@ img{ width: 100%; }
     max-height: 1000px; // greater than container
     .content-info{
       opacity: 1;
-      transition: opacity 250ms 250ms;
+      transition: opacity 250ms;
     }
     h2.project:before{
       transform: rotate3d(45deg, 45deg, 0);
@@ -265,7 +268,10 @@ img{ width: 100%; }
     padding-bottom: 20px;
   }
 
-  h2.project:before{ transition: opacity 250ms; }
+  h2.project:before{
+    transition-property: opacity, transform;
+    transition-duration: 250ms;
+  }
 }
 
 .content-header, .content-desc{ font-size: 1rem; line-height: 1rem; }

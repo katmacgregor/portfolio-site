@@ -9,7 +9,7 @@ $(document).ready(function() {
     var currentTime = new Date().getHours();
 
     if ((currentTime >= 0) && (currentTime < 5)) {
-      body.addClass('night');
+      body.addClass('night midnight');
     }
     if ((currentTime >= 5) && (currentTime < 12)) {
       body.addClass('day');
