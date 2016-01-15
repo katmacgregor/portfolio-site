@@ -11,10 +11,16 @@ $(document).ready(function() {
     if ((currentTime >= 0) && (currentTime < 5)) {
       body.addClass('night');
     }
-    if ((currentTime >= 5) && (currentTime < 16)) {
+    if ((currentTime >= 5) && (currentTime < 12)) {
       body.addClass('day');
     }
-    if ((currentTime >= 16 ) && (currentTime < 24)) {
+    if ((currentTime >= 12) && (currentTime < 16)) {
+      body.addClass('day afternoon');
+    }
+    if ((currentTime >= 16) && (currentTime < 20)) {
+      body.addClass('night evening');
+    }
+    if ((currentTime >= 20 ) && (currentTime < 24)) {
       body.addClass('night');
     }
   }

@@ -30,13 +30,21 @@ body{
   font-size: 16px;
   .bg-fill{ @include page-background($day-base, $day-accent); }
 
+  &.day.afternoon{
+    .bg-fill{ @include page-background($afternoon-base, $afternoon-accent); }
+  }
+
   &:not(.night) .fa.list{ color: #666; }
   &.night{
     color: $night-text;
     .bg-fill{ @include page-background($night-base, $night-accent); }
 
-    h1 .accent{ color: $night-text; }
+    h1 .accent, h3{ color: $night-text; }
+    .header h2, .fa{ color: rgba(255, 255, 255, 0.75); }
     .content-container{ @include container-alternating-color(rgba(255, 255, 255, 0.1), $base: 0%, $accent: 30%); }
+    &.evening{
+      .bg-fill{ @include page-background($evening-base, $evening-accent); }
+    }
   }
 }
 
@@ -46,8 +54,7 @@ h1, h2, h3{
   display: inline-block;
 }
 
-h1, h2:not(.project){
-  color: $accent;
+h2:not(.project){
   margin-bottom: -2px;
   line-height: 1.1em;
   padding-bottom: 12px;
@@ -65,6 +72,7 @@ h1{
 
 h2.project{
   font-family: $bodytext;
+  font-weight: 200;
   font-size: 1em;
   margin: 3px 0 0;
   line-height: 1.3em;
@@ -86,8 +94,10 @@ a{
 }
 
 p{
-  font-size: 0.75em;
+  font-size: 0.8em;
+  font-weight: 200;
   line-height: 1.5em;
+  letter-spacing: 0.03em;
   display: block;
 }
 
@@ -119,20 +129,25 @@ img{ width: 100%; }
   }
   &.port{
     padding: 0 12px;
-    .title{ padding-bottom: 24px; }
+    .header{ padding-bottom: 24px; }
   }
   &.loaded{
     opacity: 1;
   }
 }
 
-.title{
+.header{
   display: block;
   position: relative;
   width: 100%;
   margin: 0 auto;
   padding-bottom: 10px;
   text-align: center;
+  .title{
+    font-size: 1.25em;
+    letter-spacing: 0.04em;
+  }
+  h2{ font-weight: 200; }
 }
 
 .connect{
@@ -157,7 +172,6 @@ img{ width: 100%; }
   height: $size;
   margin: 0 3px;
   border-radius: 50%;
-  background-color: $accent;
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: center;
@@ -169,11 +183,11 @@ img{ width: 100%; }
 .fa{
   display: block;
   position: absolute;
-  color: #fff;
+  color: $day-text;
   width: 100%;
   height: 100%;
-  .title &{
-    font-size: 1.7em;
+  .header &{
+    font-size: 1.5em;
     &:before{
       position: absolute;
       top: 16%;
@@ -182,7 +196,7 @@ img{ width: 100%; }
     }
     &.fa-file-text{
       top: 8%;
-      font-size: 1.45em;
+      font-size: 1.15em;
     }
   }
   &.list{
