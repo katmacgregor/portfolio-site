@@ -1,77 +1,10 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KATRINA MACGREGOR |  Visual &amp; Web Development</title>
+{% extends "layouts/default.html" %}
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+{% set main_classes="home" %}
 
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <!-- fontawesome bower package won't sync correctly -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
-    <!--[if lt IE 10]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <div class="bg-fill"></div>
-    <div class="main-container home">
-      <div class="header">
-        <div class="title">
-          <h1 class="hide">Katrina MacGregor</h1>
-          <h3>hi,</h3><h2> i'm katrina.</h2>
-        </div>
-        <div class="connect">
-          <a href="mailto:hello@katrinamacgregor.com" alt="contact">
-            <span class="icons"><i class="fa fa-comments"></i></span>
-          </a>
-          <a href="http://us.linkedin.com/in/katrinamacgregor" target="blank" alt="linked-in">
-            <span class="icons"><i class="fa fa-linkedin"></i></span>
-          </a>
-          <a href="https://github.com/katmacgregor" target="blank" alt="linked-in">
-            <span class="icons"><i class="fa fa-github"></i></span>
-          </a>
-          <a href="http://codepen.io/katmacgregor/" target="blank" alt="linked-in">
-            <span class="icons"><i class="fa fa-codepen"></i></span>
-          </a>
-          <a href="images/KMacGregor_resume_web.pdf" target="blank" alt="resume">
-            <span class="icons"><i class="fa fa-file-text"></i></span>
-          </a>
-        </div>
-      </div>
-      <p>I made my debut as an artist with "Thanksgiving is Yummy" (Crayola on loose leaf 8.5" by 11"), featured in the kindergarten parent newsletter. This marked the dawn of my creative exploits, which now include drawing, graphic &amp; web design, development, and user experience &amp; interfaces. </p>
-      <p> I am a graduate of USC's Roski school of Fine Arts, and am currently working as a Sr. Web Application Developer at Disney Interactive.</p>
-      </div>
-
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
-  </body>
-</html>
+{% block content %}
+  {% include "includes/heading.html" %}
+  <p>I made my debut as an artist with "Thanksgiving is Yummy" (Crayola on loose leaf 8.5" by 11"), featured in the kindergarten parent newsletter. This marked the dawn of my creative exploits, which now include drawing, graphic &amp; web design, development, and user experience &amp; interfaces. </p>
+  <p> I am a graduate of USC's Roski school of Fine Arts, and am currently working as a Sr. Web Application Developer at Disney Interactive.</p>
+  </div>
+{% endblock %}
