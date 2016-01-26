@@ -18,10 +18,22 @@
         alt: "Star Wars Homepage"
       },
       icons: [
-        "fa-rebel",
-        "fa-laptop",
-        "fa-wrench",
-        "fa-picture-o"
+        {
+          title: "Star Wars",
+          image: "fa-rebel"
+        },
+        {
+          title: "UX",
+          image: "fa-laptop"
+        },
+        {
+          title: "Development",
+          image: "fa-wrench"
+        },
+        {
+          title: "Design",
+          image: "fa-picture-o"
+        }
       ],
       images: [
         {
@@ -61,10 +73,22 @@
         alt: "Disney.com Cars Homepage"
       },
       icons: [
-        "fa-sitemap",
-        "fa-laptop",
-        "fa-wrench",
-        "fa-picture-o"
+        {
+          title: "IA",
+          image: "fa-sitemap"
+        },
+        {
+          title: "UX",
+          image: "fa-laptop"
+        },
+        {
+          title: "Development",
+          image: "fa-wrench"
+        },
+        {
+          title: "Design",
+          image: "fa-picture-o"
+        }
       ],
       images: [
         {
@@ -105,9 +129,18 @@
         alt: "Disney Junior Responsive"
       },
       icons: [
-        "fa-sitemap",
-        "fa-laptop",
-        "fa-wrench"
+        {
+          title: "IA",
+          image: "fa-sitemap"
+        },
+        {
+          title: "UX",
+          image: "fa-laptop"
+        },
+        {
+          title: "Development",
+          image: "fa-wrench"
+        }
       ],
       images: [
         {
@@ -150,8 +183,14 @@
         alt: "Frozen Final Homepage"
       },
       icons: [
-        "fa-sitemap",
-        "fa-laptop"
+        {
+          title: "IA",
+          image: "fa-sitemap"
+        },
+        {
+          title: "UX",
+          image: "fa-laptop"
+        }
       ],
       images: [
         {
@@ -188,10 +227,22 @@
         alt: "YayArt Responsive"
       },
       icons: [
-        "fa-sitemap",
-        "fa-laptop",
-        "fa-wrench",
-        "fa-picture-o"
+        {
+          title: "IA",
+          image: "fa-sitemap"
+        },
+        {
+          title: "UX",
+          image: "fa-laptop"
+        },
+        {
+          title: "Development",
+          image: "fa-wrench"
+        },
+        {
+          title: "Design",
+          image: "fa-picture-o"
+        }
       ],
       images: [
         {
@@ -227,7 +278,10 @@
         alt: "Apartment List"
       },
       icons: [
-        "fa-pencil"
+        {
+          title: "Illustration",
+          image: "fa-pencil"
+        }
       ],
       images: [
         {
@@ -268,9 +322,18 @@
         alt: "Meet Mochi"
       },
       icons: [
-        "fa-paint-brush",
-        "fa-picture-o",
-        "fa-pencil"
+        {
+          title: "Painting",
+          image: "fa-paint-brush"
+        },
+        {
+          title: "Design",
+          image: "fa-picture-o"
+        },
+        {
+          title: "Illustration",
+          image: "fa-pencil"
+        }
       ],
       images: [
         {
@@ -307,7 +370,10 @@
         alt: "Katrina"
       },
       icons: [
-        "fa-smile-o"
+        {
+          title: "Oh hai!",
+          image: "fa-smile-o"
+        }
       ]
     }
   ]
@@ -323,7 +389,7 @@
       <span class="expand-icon"></span><h2 class="project">{{item.name}}</h2>
       <div class="icon-legend">
         {% for icon in item.icons %}
-          <i class="fa list {{icon}}"></i>
+          <i title="{{icon.title}}" class="fa list {{icon.image}}"></i>
         {% endfor %}
       </div>
     </div>
